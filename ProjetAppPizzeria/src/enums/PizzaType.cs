@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace ProjetAppPizzeria.src.enums
 {
-    internal class PizzaType
+    enum PizzaType
     {
+        MARGHERITA,
+        FOUR_CHEESES,
+        HAWAIIAN,
+        PEPPERONI,
+        MEXICAN,
+        VEGETARIAN
     }
 }

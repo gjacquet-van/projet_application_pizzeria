@@ -8,6 +8,10 @@ namespace ProjetAppPizzeria.src.enums
 {
     enum DrinkType
     {
-
+        COLA,
+        SPRITE,
+        FANTA,
+        FRUIT_JUICE,
+        WATER
     }
 }

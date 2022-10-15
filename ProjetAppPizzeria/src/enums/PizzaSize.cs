@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ProjetAppPizzeria.src.enums
 {
-    internal class PizzaSize
+    enum PizzaSize
     {
+        SMALL,
+        MEDIUM,
+        LARGE
     }
 }
