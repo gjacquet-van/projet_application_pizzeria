@@ -24,5 +24,15 @@ namespace ProjetAppPizzeria
         {
             InitializeComponent();
         }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void AddNewClient(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("helloworld");
+        }
     }
 }

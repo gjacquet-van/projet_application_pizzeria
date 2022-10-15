@@ -5,8 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjetAppPizzeria"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Pizzeria Manager" Height="450" Width="800" Icon="/2094661.png">
     <Grid>
-        
+        <TabControl>
+            <TabItem Header="Helper">
+                <Grid Background="#FFE5E5E5">
+                    <Button Content="Add new client" HorizontalAlignment="Left" Margin="116,100,0,0" VerticalAlignment="Top" Height="35" Width="110" Click="AddNewClient"/>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Cook">
+                <Grid Background="#FFE5E5E5">
+                </Grid>
+            </TabItem>
+            <TabItem Header="Delivery man">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="Statistics">
+                <Grid Background="#FFE5E5E5">
+                    <TabControl>
+                        <TabItem Header="Helper">
+                            <Grid Background="#FFE5E5E5">
+                                <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Delivery man">
+                            <Grid Background="#FFE5E5E5"/>
+                        </TabItem>
+                        <TabItem Header="Client">
+                            <Grid Background="#FFE5E5E5"/>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
