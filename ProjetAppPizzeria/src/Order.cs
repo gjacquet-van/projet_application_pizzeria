@@ -8,5 +8,9 @@ namespace ProjetAppPizzeria.src
 {
     internal class Order
     {
+        private DateTime OrderDate;
+        private int OrderNumber;
+
+
     }
 }

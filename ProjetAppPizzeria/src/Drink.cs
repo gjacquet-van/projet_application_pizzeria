@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetAppPizzeria.src.enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,13 @@ namespace ProjetAppPizzeria.src
 {
     internal class Drink
     {
+        private DrinkType type;
+        private float price;
+
+        public Drink(DrinkType type, float price)
+        {
+            this.type = type;
+            this.price = price;
+        }
     }
 }
