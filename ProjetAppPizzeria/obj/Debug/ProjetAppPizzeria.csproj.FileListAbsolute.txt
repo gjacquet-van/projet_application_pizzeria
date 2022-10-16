@@ -14,3 +14,4 @@ C:\Users\Guillaume Jacquet\Documents\github\projet_application_pizzeria\ProjetAp
 C:\Users\Guillaume Jacquet\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\ProjetAppPizzeria.csproj.CoreCompileInputs.cache
 C:\Users\Guillaume Jacquet\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\ProjetAppPizzeria.exe
 C:\Users\Guillaume Jacquet\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\ProjetAppPizzeria.pdb
+C:\Users\Guillaume Jacquet\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\GeneratedInternalTypeHelper.g.cs

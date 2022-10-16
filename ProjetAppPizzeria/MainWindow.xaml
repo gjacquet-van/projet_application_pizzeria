@@ -27,7 +27,7 @@
                     <TabControl>
                         <TabItem Header="Helper">
                             <Grid Background="#FFE5E5E5">
-                                <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                                <DataGrid Name="DataGridHelper"/>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Delivery man">

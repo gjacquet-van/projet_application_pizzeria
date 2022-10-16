@@ -28,6 +28,7 @@ namespace ProjetAppPizzeria
             pizzeria = new Pizzeria();
             Console.WriteLine(pizzeria);
             InitializeComponent();
+            
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
