@@ -19,5 +19,10 @@ namespace ProjetAppPizzeria.src
             this.size = size;
             this.price = price;
         }
+        
+        public override string ToString()
+        {
+            return " Type: " + this.type + " Size: " + this.size + " Price: " + this.price;
+        }
     }
 }

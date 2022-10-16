@@ -18,5 +18,10 @@ namespace ProjetAppPizzeria.src
         {
             return this.salary;
         }
+        
+        public override string ToString()
+        {
+            return base.ToString() + " Salary: " + this.salary;
+        }
     }
 }

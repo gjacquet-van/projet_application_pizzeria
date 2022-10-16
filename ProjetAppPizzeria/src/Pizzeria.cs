@@ -112,7 +112,37 @@ namespace ProjetAppPizzeria.src
         {
             this.orders.Remove(order);
         }
-        
+
+        public override string ToString()
+        {
+            string result = "Clients: \n";
+            foreach (Client client in this.clients)
+            {
+                result += client.ToString() + "\n";
+            }
+            result += "Cooks: \n";
+            foreach (Cook cook in this.cooks)
+            {
+                result += cook.ToString() + "\n";
+            }
+            result += "Helpers: \n";
+            foreach (Helper helper in this.helpers)
+            {
+                result += helper.ToString() + "\n";
+            }
+            result += "DeliveryMen: \n";
+            foreach (DeliveryMan deliveryMan in this.deliveryMen)
+            {
+                result += deliveryMan.ToString() + "\n";
+            }
+            result += "Orders: \n";
+            foreach (Order order in this.orders)
+            {
+                result += order.ToString() + "\n";
+            }
+            return result;
+        }
+
 
     }
 }

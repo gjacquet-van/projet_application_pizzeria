@@ -26,7 +26,7 @@ namespace ProjetAppPizzeria
         public MainWindow()
         {
             pizzeria = new Pizzeria();
-            Console.WriteLine(pizzeria.getClients()[0]);
+            Console.WriteLine(pizzeria);
             InitializeComponent();
         }
 
