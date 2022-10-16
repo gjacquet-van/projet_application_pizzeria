@@ -11,6 +11,8 @@ namespace ProjetAppPizzeria.src
         private DateTime OrderDate;
         private int OrderNumber;
 
-
+        public Order()
+        {
+        }
     }
 }

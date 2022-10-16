@@ -60,6 +60,7 @@
     <Compile Include="src\enums\PizzaSize.cs" />
     <Compile Include="src\enums\PizzaType.cs" />
     <Compile Include="src\Pizza.cs" />
+    <Compile Include="src\Pizzeria.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

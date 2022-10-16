@@ -43,7 +43,12 @@ namespace ProjetAppPizzeria
         {
             return this.country;
         }
-        
+        //tostring
+        public override string ToString()
+        {
+            return " Street number: " + this.streetNumber + " Street name: " + this.streetName + " City: " + this.city + " Postal code: " + this.postalCode + " Country: " + this.country;
+        }
+
 
 
 

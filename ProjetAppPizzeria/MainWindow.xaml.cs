@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetAppPizzeria.src;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,12 @@ namespace ProjetAppPizzeria
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Pizzeria pizzeria;
+
         public MainWindow()
         {
+            pizzeria = new Pizzeria();
+            Console.WriteLine(pizzeria.getClients()[0]);
             InitializeComponent();
         }
 

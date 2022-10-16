@@ -24,5 +24,9 @@ namespace ProjetAppPizzeria.src
         {
             return this.numberOfOrders;
         }
+        public override string ToString()
+        {
+            return base.ToString() + " First order date: " + this.firstOrderDate + " Number of orders: " + this.numberOfOrders;
+        }
     }
 }
