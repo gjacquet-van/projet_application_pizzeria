@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace ProjetAppPizzeria.src
 {
@@ -19,6 +20,43 @@ namespace ProjetAppPizzeria.src
         private float totalPrice;
         private bool isCooked;
         private bool isDelivered;
+        private int orderTimer;
+        public string Details {
+            get
+            {
+                string s = "";
+                foreach (Pizza p in pizzas)
+                {
+                    s += p.ToString()+"\n";
+                }
+                return s;
+            }
+        }
+        public string orderNumberString
+        {
+            get
+            {
+                return orderNumber.ToString();
+            }
+        }
+
+        public string orderTimerString
+        {
+            get
+            {
+                string s = "";
+                if (orderTimer < 60)
+                {
+                    s += orderTimer.ToString()+"s";
+                }
+                else
+                {
+                    s = (orderTimer / 60).ToString()+"m";
+                    s += (orderTimer % 60).ToString() + "s";
+                }
+                return s;
+            }
+        }
 
         public Order(Client client, Helper helper, DeliveryMan deliveryMan, List<Pizza> pizzas, List<Drink> drinks)
         {
@@ -115,6 +153,14 @@ namespace ProjetAppPizzeria.src
         {
             return this.isDelivered;
         }
+        public void SetOrderTimer(int t)
+        {
+            this.orderTimer = t;
+        }
+        public int GetOrderTimer()
+        {
+            return orderTimer;
+        }
 
 
         public float CalculTotalPrice()
@@ -134,5 +180,6 @@ namespace ProjetAppPizzeria.src
         {
             return "Order date: " + this.orderDate + " Order number: " + this.orderNumber;
         }
+
     }
 }

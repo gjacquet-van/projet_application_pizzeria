@@ -17,7 +17,17 @@
             </TabItem>
             <TabItem Header="Cook">
                 <Grid Background="#FFE5E5E5">
-                    <Button Content="Order Cooked" HorizontalAlignment="Left" Margin="124,63,0,0" VerticalAlignment="Top" Height="41" Width="217" Click="finishCookingOrder"/>
+                    <DataGrid Name="OrderListToCook" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Order" Width="150" Binding="{Binding orderNumberString}"/>
+                            <DataGridTextColumn Header="Time" Width="150" Binding="{Binding orderTimerString}"/>
+                        </DataGrid.Columns>
+                        <DataGrid.RowDetailsTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Details}" Margin="10" />
+                            </DataTemplate>
+                        </DataGrid.RowDetailsTemplate>
+                    </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Header="Delivery man">

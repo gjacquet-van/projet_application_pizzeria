@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ProjetAppPizzeria.src
@@ -23,8 +24,8 @@ namespace ProjetAppPizzeria.src
         public void addOrderQueue(Order order)
         {
             this.ordersQueue.Add(order);
-            Task t = new Task(() => this.makePizza(order));
-            t.Start();
+            Task.Run(() => this.makePizza(order));
+            
             
 
         }
@@ -39,6 +40,7 @@ namespace ProjetAppPizzeria.src
             {
                 await Task.Delay(1000);
                 Console.WriteLine("Cooking order : " + order.GetOrderDate());
+                order.SetOrderTimer(order.GetOrderTimer() + 1);
             }
             Console.WriteLine("order" + order.GetOrderDate() + "cooked!");
 

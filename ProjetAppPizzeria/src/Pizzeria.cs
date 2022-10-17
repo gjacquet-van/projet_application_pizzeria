@@ -114,6 +114,11 @@ namespace ProjetAppPizzeria.src
         {
             this.orders.Remove(order);
         }
+        internal IEnumerable GetOrdersToCook()
+        {
+            Console.WriteLine("updated");
+            return this.orders.FindAll(order => order.GetIsCooked() == false);
+        }
 
         public override string ToString()
         {

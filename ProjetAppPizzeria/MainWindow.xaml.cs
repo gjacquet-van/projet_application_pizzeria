@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace ProjetAppPizzeria
 {
@@ -26,10 +27,17 @@ namespace ProjetAppPizzeria
 
         public MainWindow()
         {
+            
+            InitializeComponent();
             pizzeria = new Pizzeria();
             Console.WriteLine(pizzeria);
-            InitializeComponent();
-            
+            DispatcherTimer dispatcherTimer = new DispatcherTimer(DispatcherPriority.Normal);
+            dispatcherTimer.Tick += new EventHandler(timer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            dispatcherTimer.Start();
+
+
+
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -58,12 +66,18 @@ namespace ProjetAppPizzeria
             Order o = new Order((Client)pizzeria.getClients()[0], (Helper)pizzeria.getHelpers()[0], (DeliveryMan)pizzeria.getDeliveryMen()[0], pizzas, drinks);
 
             pizzeria.addOrder(o);
+            OrderListToCook.ItemsSource = pizzeria.GetOrdersToCook();
         }
         private void finishCookingOrder(object sender, RoutedEventArgs e)
         {
             pizzeria.getOrders()[0].SetIsCooked(true);
-            //pizzeria.getCooks()[0].removeOrderQueue();
+            pizzeria.getCooks()[0].removeOrderQueue();
             
         }
+        void timer_Tick(object sender, EventArgs e)
+        {
+            OrderListToCook.ItemsSource = pizzeria.GetOrdersToCook();
+        }
+    
     }
 }
