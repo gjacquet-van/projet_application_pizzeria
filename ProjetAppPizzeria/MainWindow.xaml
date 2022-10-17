@@ -10,13 +10,14 @@
         <TabControl>
             <TabItem Header="Helper">
                 <Grid Background="#FFE5E5E5">
-                    <Button Content="Add new client" HorizontalAlignment="Left" Margin="116,100,0,0" VerticalAlignment="Top" Height="35" Width="110" Click="AddNewClient"/>
+                    <Button Content="send new order to cook" HorizontalAlignment="Left" Margin="116,100,0,0" VerticalAlignment="Top" Height="35" Width="163" Click="sendNewOrderToCook"/>
 
 
                 </Grid>
             </TabItem>
             <TabItem Header="Cook">
                 <Grid Background="#FFE5E5E5">
+                    <Button Content="Order Cooked" HorizontalAlignment="Left" Margin="124,63,0,0" VerticalAlignment="Top" Height="41" Width="217" Click="finishCookingOrder"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Delivery man">

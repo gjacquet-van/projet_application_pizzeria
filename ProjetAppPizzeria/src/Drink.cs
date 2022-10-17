@@ -17,5 +17,10 @@ namespace ProjetAppPizzeria.src
             this.type = type;
             this.price = price;
         }
+
+        internal float GetPrice()
+        {
+            return 0;
+        }
     }
 }

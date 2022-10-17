@@ -1,4 +1,5 @@
 ﻿using ProjetAppPizzeria.src;
+using ProjetAppPizzeria.src.enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,30 @@ namespace ProjetAppPizzeria
         private void AddNewClient(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("helloworld");
+        }
+
+        private void sendNewOrderToCook(object sender, RoutedEventArgs e)
+        {
+            Pizza p1 = new Pizza(PizzaType.FOUR_CHEESES, PizzaSize.MEDIUM, 10);
+            Pizza p2 = new Pizza(PizzaType.MARGHERITA, PizzaSize.LARGE, 12);
+            Drink d1 = new Drink(DrinkType.WATER, 2);
+            Drink d2 = new Drink(DrinkType.COLA, 3);
+            List<Pizza> pizzas = new List<Pizza>();
+            List<Drink> drinks = new List<Drink>();
+            pizzas.Add(p1);
+            pizzas.Add(p2);
+            drinks.Add(d1);
+            drinks.Add(d2);
+
+            Order o = new Order((Client)pizzeria.getClients()[0], (Helper)pizzeria.getHelpers()[0], (DeliveryMan)pizzeria.getDeliveryMen()[0], pizzas, drinks);
+
+            pizzeria.addOrder(o);
+        }
+        private void finishCookingOrder(object sender, RoutedEventArgs e)
+        {
+            pizzeria.getOrders()[0].SetIsCooked(true);
+            //pizzeria.getCooks()[0].removeOrderQueue();
+            
         }
     }
 }
