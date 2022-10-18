@@ -23,17 +23,16 @@ namespace ProjetAppPizzeria.src
 
         public void addOrderQueue(Order order)
         {
-            //this.ordersQueue.Add(order);
             Task.Run(() => this.makePizza(order));
         }
         public void removeOrderQueue()
         {
-            //this.ordersQueue.RemoveAt(0);
+            this.ordersQueue.RemoveAt(0);
         }
 
         public async void makePizza(Order order)
         {
-            while (order.GetIsCooked() == false)
+            while (order.GetIsCooked() == false && order.GetIsCanceled() == false)
             {
                 await Task.Delay(1000);
                 Console.WriteLine("Cooking order : " + order.ToString());

@@ -117,11 +117,11 @@ namespace ProjetAppPizzeria.src
         internal IEnumerable GetOrdersToCook()
         {
             //Console.WriteLine("updated");
-            return this.orders.FindAll(order => order.GetIsCooked() == false);
+            return this.orders.FindAll(order => order.GetIsCooked() == false && order.GetIsCanceled() == false);
         }
         internal IEnumerable GetOrdersToDeliver()
         {
-            return this.orders.FindAll(order => (order.GetIsCooked() == true) && (order.GetIsDelivered() == false));
+            return this.orders.FindAll(order => (order.GetIsCooked() == true) && (order.GetIsDelivered() == false) && (order.GetIsCanceled() == false));
         }
 
         public override string ToString()

@@ -56,14 +56,14 @@
                             <DataGridTemplateColumn>
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Tag="{Binding Path=orderNumberString}" Click="finishCookingOrder" Name="Finish" Background="Green" Foreground="White" Width="50">✔</Button>
+                                        <Button Tag="{Binding Path=orderNumberString}" Click="finishDeliveringOrder" Name="Finish" Background="Green" Foreground="White" Width="50">✔</Button>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                             <DataGridTemplateColumn>
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Tag="{Binding Path=orderNumberString}" Click="CancelCookingOrder" Name="Cancel" Background="Red" Foreground="White" Width="50">❌</Button>
+                                        <Button Tag="{Binding Path=orderNumberString}" Click="CancelDeliveringOrder" Name="Cancel" Background="Red" Foreground="White" Width="50">❌</Button>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>

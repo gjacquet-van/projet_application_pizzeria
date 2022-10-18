@@ -21,6 +21,7 @@ namespace ProjetAppPizzeria.src
         private bool isCooked;
         private bool isDelivered;
         private int orderTimer;
+        private bool isCanceled;
         public string Details {
             get
             {
@@ -80,6 +81,7 @@ namespace ProjetAppPizzeria.src
             this.totalPrice = CalculTotalPrice();
             this.isCooked = false;
             this.isDelivered = false;
+            this.isCanceled = false;
 
         }
 
@@ -150,6 +152,10 @@ namespace ProjetAppPizzeria.src
         public void SetIsCooked(bool isCooked)
         {
             this.isCooked = isCooked;
+            if (isCooked)
+            {
+                this.orderTimer = 0;
+            }
         }
         public bool GetIsCooked()
         {
@@ -162,6 +168,14 @@ namespace ProjetAppPizzeria.src
         public bool GetIsDelivered()
         {
             return this.isDelivered;
+        }
+        public void SetIsCanceled(bool isCanceled)
+        {
+            this.isCanceled = isCanceled;
+        }
+        public bool GetIsCanceled()
+        {
+            return this.isCanceled;
         }
         public void SetOrderTimer(int t)
         {

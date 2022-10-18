@@ -76,7 +76,17 @@ namespace ProjetAppPizzeria
         private void CancelCookingOrder(object sender, RoutedEventArgs e)
         {
             Order o = (Order)OrderListToCook.SelectedItem;
-            pizzeria.getOrders()[o.GetOrderNumber()].SetIsCooked(true);
+            pizzeria.getOrders()[o.GetOrderNumber()].SetIsCanceled(true);
+        }
+        private void finishDeliveringOrder(object sender, RoutedEventArgs e)
+        {
+            Order o = (Order)OrderListToDeliver.SelectedItem;
+            pizzeria.getOrders()[o.GetOrderNumber()].SetIsDelivered(true);
+        }
+        private void CancelDeliveringOrder(object sender, RoutedEventArgs e)
+        {
+            Order o = (Order)OrderListToDeliver.SelectedItem;
+            pizzeria.getOrders()[o.GetOrderNumber()].SetIsCanceled(true);
         }
         void timer_Tick(object sender, EventArgs e)
         {
