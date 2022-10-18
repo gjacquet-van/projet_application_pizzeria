@@ -63,16 +63,20 @@ namespace ProjetAppPizzeria
             drinks.Add(d1);
             drinks.Add(d2);
 
-            Order o = new Order((Client)pizzeria.getClients()[0], (Helper)pizzeria.getHelpers()[0], (DeliveryMan)pizzeria.getDeliveryMen()[0], pizzas, drinks);
+            Order o = new Order((Client)pizzeria.getClients()[0], (Helper)pizzeria.getHelpers()[0], (DeliveryMan)pizzeria.getDeliveryMen()[0], pizzas, drinks, pizzeria.getOrders().Count);
 
             pizzeria.addOrder(o);
             OrderListToCook.ItemsSource = pizzeria.GetOrdersToCook();
         }
         private void finishCookingOrder(object sender, RoutedEventArgs e)
         {
-            pizzeria.getOrders()[0].SetIsCooked(true);
-            pizzeria.getCooks()[0].removeOrderQueue();
-            
+            Order o = (Order)OrderListToCook.SelectedItem;
+            pizzeria.getOrders()[o.GetOrderNumber()].SetIsCooked(true);
+        }
+        private void CancelCookingOrder(object sender, RoutedEventArgs e)
+        {
+            Order o = (Order)OrderListToCook.SelectedItem;
+            pizzeria.getOrders()[o.GetOrderNumber()].SetIsCooked(true);
         }
         void timer_Tick(object sender, EventArgs e)
         {

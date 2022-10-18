@@ -23,7 +23,7 @@ namespace ProjetAppPizzeria.src
 
         public void addOrderQueue(Order order)
         {
-            this.ordersQueue.Add(order);
+            //this.ordersQueue.Add(order);
             Task.Run(() => this.makePizza(order));
             
             
@@ -31,7 +31,7 @@ namespace ProjetAppPizzeria.src
         }
         public void removeOrderQueue()
         {
-            this.ordersQueue.RemoveAt(0);
+            //this.ordersQueue.RemoveAt(0);
         }
 
         public async void makePizza(Order order)

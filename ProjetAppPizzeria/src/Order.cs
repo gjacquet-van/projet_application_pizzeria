@@ -58,10 +58,10 @@ namespace ProjetAppPizzeria.src
             }
         }
 
-        public Order(Client client, Helper helper, DeliveryMan deliveryMan, List<Pizza> pizzas, List<Drink> drinks)
+        public Order(Client client, Helper helper, DeliveryMan deliveryMan, List<Pizza> pizzas, List<Drink> drinks, int orderNumber)
         {
             this.orderDate = DateTime.Now;
-            this.orderNumber = 0; // J'imagine qu'il faudra réfléchir à un moyen d'indenter.
+            this.orderNumber = orderNumber; // J'imagine qu'il faudra réfléchir à un moyen d'indenter.
             this.client = client;
             this.helper = helper;
             this.deliveryMan = deliveryMan;
