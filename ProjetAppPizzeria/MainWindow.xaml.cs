@@ -81,6 +81,7 @@ namespace ProjetAppPizzeria
         void timer_Tick(object sender, EventArgs e)
         {
             OrderListToCook.ItemsSource = pizzeria.GetOrdersToCook();
+            OrderListToDeliver.ItemsSource = pizzeria.GetOrdersToDeliver();
         }
     
     }

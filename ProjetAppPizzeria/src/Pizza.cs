@@ -19,10 +19,19 @@ namespace ProjetAppPizzeria.src
             this.size = size;
             this.price = price;
         }
-        
+
+        public PizzaType getType()
+        {
+            return this.type;
+        }
+        public PizzaSize getSize()
+        {
+            return this.size;
+        }
+
         public override string ToString()
         {
-            return " Type: " + this.type + " Size: " + this.size + " Price: " + this.price;
+            return " Type: " + this.type + " // Size: " + this.size + " // Price: " + this.price +"€";
         }
 
         internal float GetPrice()

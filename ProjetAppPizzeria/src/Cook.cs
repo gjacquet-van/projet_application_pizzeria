@@ -25,9 +25,6 @@ namespace ProjetAppPizzeria.src
         {
             //this.ordersQueue.Add(order);
             Task.Run(() => this.makePizza(order));
-            
-            
-
         }
         public void removeOrderQueue()
         {
@@ -39,10 +36,10 @@ namespace ProjetAppPizzeria.src
             while (order.GetIsCooked() == false)
             {
                 await Task.Delay(1000);
-                Console.WriteLine("Cooking order : " + order.GetOrderDate());
+                Console.WriteLine("Cooking order : " + order.ToString());
                 order.SetOrderTimer(order.GetOrderTimer() + 1);
             }
-            Console.WriteLine("order" + order.GetOrderDate() + "cooked!");
+            Console.WriteLine("order " + order.ToString() + " cooked!");
 
         }
 

@@ -116,8 +116,12 @@ namespace ProjetAppPizzeria.src
         }
         internal IEnumerable GetOrdersToCook()
         {
-            Console.WriteLine("updated");
+            //Console.WriteLine("updated");
             return this.orders.FindAll(order => order.GetIsCooked() == false);
+        }
+        internal IEnumerable GetOrdersToDeliver()
+        {
+            return this.orders.FindAll(order => (order.GetIsCooked() == true) && (order.GetIsDelivered() == false));
         }
 
         public override string ToString()
@@ -150,6 +154,6 @@ namespace ProjetAppPizzeria.src
             return result;
         }
 
-
+        
     }
 }

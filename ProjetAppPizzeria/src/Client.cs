@@ -11,6 +11,7 @@ namespace ProjetAppPizzeria.src
         private DateTime firstOrderDate;
         private int numberOfOrders;
 
+
         public Client(string firstName, string lastName, string phoneNumber, string streetNumber, string streetName, string city, string postalCode, string country, DateTime firstOrderDate) : base(firstName, lastName, phoneNumber, streetNumber, streetName, city, postalCode, country)
         {
             this.firstOrderDate = firstOrderDate;

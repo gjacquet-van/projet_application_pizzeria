@@ -57,6 +57,16 @@ namespace ProjetAppPizzeria.src
                 return s;
             }
         }
+        
+        public string orderAddressString
+        {
+            get
+            {
+                {
+                    return ""+client.getAddress();
+                }
+            }
+        }
 
         public Order(Client client, Helper helper, DeliveryMan deliveryMan, List<Pizza> pizzas, List<Drink> drinks, int orderNumber)
         {
