@@ -10,17 +10,71 @@
         <TabControl>
             <TabItem Header="Helper">
                 <Grid Background="#FFE5E5E5">
-                    <Button Content="Add new client" HorizontalAlignment="Left" Margin="116,100,0,0" VerticalAlignment="Top" Height="35" Width="110" Click="AddNewClient"/>
+                    <Button Content="send new order to cook" HorizontalAlignment="Left" Margin="116,100,0,0" VerticalAlignment="Top" Height="35" Width="163" Click="sendNewOrderToCook"/>
+                    <Button Content="send cooked order to delivery man" HorizontalAlignment="Left" Margin="98,148,0,0" VerticalAlignment="Top" Height="35" Width="198" Click="sendNewOrderToCook"/>
 
 
                 </Grid>
             </TabItem>
             <TabItem Header="Cook">
                 <Grid Background="#FFE5E5E5">
+                    <DataGrid Name="OrderListToCook" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Order" Width="50" Binding="{Binding Path=orderNumberString, Mode=OneWay}"/>
+                            <DataGridTextColumn Header="Content" Width="300" Binding="{Binding Path=Details, Mode=OneWay}"/>
+                            <DataGridTextColumn Header="Time" Width="50" Binding="{Binding Path=orderTimerString, Mode=OneWay}"/>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Tag="{Binding Path=orderNumberString}" Click="finishCookingOrder" Name="Finish" Background="Green" Foreground="White" Width="50">✔</Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Tag="{Binding Path=orderNumberString}" Click="CancelCookingOrder" Name="Cancel" Background="Red" Foreground="White" Width="50">❌</Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                        <DataGrid.RowDetailsTemplate>
+                            <DataTemplate>
+
+                            </DataTemplate>
+                        </DataGrid.RowDetailsTemplate>
+                    </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Header="Delivery man">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid Name="OrderListToDeliver" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Order" Width="50" Binding="{Binding Path=orderNumberString, Mode=OneWay}"/>
+                            <DataGridTextColumn Header="Address" Width="300" Binding="{Binding Path=orderAddressString, Mode=OneWay}"/>
+                            <DataGridTextColumn Header="Time" Width="50" Binding="{Binding Path=orderTimerString, Mode=OneWay}"/>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Tag="{Binding Path=orderNumberString}" Click="finishDeliveringOrder" Name="Finish" Background="Green" Foreground="White" Width="50">✔</Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Tag="{Binding Path=orderNumberString}" Click="CancelDeliveringOrder" Name="Cancel" Background="Red" Foreground="White" Width="50">❌</Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                        <DataGrid.RowDetailsTemplate>
+                            <DataTemplate>
+
+                            </DataTemplate>
+                        </DataGrid.RowDetailsTemplate>
+                    </DataGrid>
+                </Grid>
             </TabItem>
             <TabItem Header="Statistics">
                 <Grid Background="#FFE5E5E5">

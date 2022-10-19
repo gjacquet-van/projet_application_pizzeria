@@ -9,11 +9,12 @@ namespace ProjetAppPizzeria.src
 {
     internal class Pizzeria
     {
-        private ArrayList clients = new ArrayList();
-        private ArrayList cooks = new ArrayList();
-        private ArrayList helpers = new ArrayList();
-        private ArrayList deliveryMen = new ArrayList();
-        private ArrayList orders = new ArrayList();
+        private List<Client> clients = new List<Client>();
+        private List<Cook> cooks = new List<Cook>();
+        private List<Helper> helpers = new List<Helper>();
+        private List<Order> orders = new List<Order>();
+        private List<DeliveryMan> deliveryMen = new List<DeliveryMan>();
+
 
         public Pizzeria()
         {
@@ -37,37 +38,37 @@ namespace ProjetAppPizzeria.src
 
             DeliveryMan deliveryMan1 = new DeliveryMan("Jean", "Le livreur", "0625262728", "26", "rue du livreur", "Paris", "75000", "France", 1000);
             DeliveryMan deliveryMan2 = new DeliveryMan("Jeanne", "La livreuse", "0629303132", "27", "rue du livreur", "Paris", "75000", "France", 1000);
-
+            
             this.deliveryMen.Add(deliveryMan1);
             this.deliveryMen.Add(deliveryMan2);
-
+            /*
             Order order1 = new Order();
             Order order2 = new Order();
             Order order3 = new Order();
-
+            
             this.orders.Add(order1);
             this.orders.Add(order2);
             this.orders.Add(order3);
-            
+            */
         }
 
-        public ArrayList getClients()
+        public List<Client> getClients()
         {
             return this.clients;
         }
-        public ArrayList getCooks()
+        public List<Cook> getCooks()
         {
             return this.cooks;
         }
-        public ArrayList getHelpers()
+        public List<Helper> getHelpers()
         {
             return this.helpers;
         }
-        public ArrayList getDeliveryMen()
+        public List<DeliveryMan> getDeliveryMen()
         {
             return this.deliveryMen;
         }
-        public ArrayList getOrders()
+        public List<Order> getOrders()
         {
             return this.orders;
         }
@@ -91,6 +92,7 @@ namespace ProjetAppPizzeria.src
         public void addOrder(Order order)
         {
             this.orders.Add(order);
+            cooks[0].addOrderQueue(order);
         }
         public void removeClient(Client client)
         {
@@ -111,6 +113,15 @@ namespace ProjetAppPizzeria.src
         public void removeOrder(Order order)
         {
             this.orders.Remove(order);
+        }
+        internal IEnumerable GetOrdersToCook()
+        {
+            //Console.WriteLine("updated");
+            return this.orders.FindAll(order => order.GetIsCooked() == false && order.GetIsCanceled() == false);
+        }
+        internal IEnumerable GetOrdersToDeliver()
+        {
+            return this.orders.FindAll(order => (order.GetIsCooked() == true) && (order.GetIsDelivered() == false) && (order.GetIsCanceled() == false));
         }
 
         public override string ToString()
@@ -143,6 +154,6 @@ namespace ProjetAppPizzeria.src
             return result;
         }
 
-
+        
     }
 }
