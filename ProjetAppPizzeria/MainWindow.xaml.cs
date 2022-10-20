@@ -1,6 +1,7 @@
 ﻿using ProjetAppPizzeria.src;
 using ProjetAppPizzeria.src.enums;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -93,6 +94,43 @@ namespace ProjetAppPizzeria
             OrderListToCook.ItemsSource = pizzeria.GetOrdersToCook();
             OrderListToDeliver.ItemsSource = pizzeria.GetOrdersToDeliver();
         }
-    
+
+        private List<Order> GetOrdersFromHelper(Helper helper)
+        {
+            return pizzeria.getOrders().FindAll(order => ((order.GetIsDelivered() == true) && (order.GetIsCanceled() == false) && (order.GetHelper() == helper)));
+        }
+        private int GetTotalOrdersFromHelper(Helper helper)
+        {
+            return this.GetOrdersFromHelper(helper).Count;
+        }
+        private List<Order> GetOrdersFromDeliveryMan(DeliveryMan DeliveryMan)
+        {
+            return pizzeria.getOrders().FindAll(order => ((order.GetIsDelivered() == true) && (order.GetIsCanceled() == false) && (order.GetDeliveryMan() == DeliveryMan)));
+        }
+        private int GetTotalOrdersFromDeliveryMan(DeliveryMan deliveryMan)
+        {
+            return this.GetOrdersFromDeliveryMan(deliveryMan).Count;
+        }
+        private float GetAveragePrice()
+        {
+            List<Order> orders =  pizzeria.getOrders().FindAll(order => ((order.GetIsDelivered() == true) && (order.GetIsCanceled() == false)));
+            float totalPrice = 0;
+            foreach (Order order in orders)
+            {
+                totalPrice += order.GetTotalPrice();
+            }
+            return totalPrice / orders.Count;
+        }
+        private float GetAveragePriceFromClient(Client client)
+        {
+            List<Order> orders = pizzeria.getOrders().FindAll(order => ((order.GetIsDelivered() == true) && (order.GetIsCanceled() == false) && (order.GetClient() == client)));
+            float totalPrice = 0;
+            foreach (Order order in orders)
+            {
+                totalPrice += order.GetTotalPrice();
+            }
+            return totalPrice / orders.Count;
+        }
+
     }
 }
