@@ -61,6 +61,12 @@
     <Compile Include="HelperPage2.xaml.cs">
       <DependentUpon>HelperPage2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HelperPage3.xaml.cs">
+      <DependentUpon>HelperPage3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HelperPage4.xaml.cs">
+      <DependentUpon>HelperPage4.xaml</DependentUpon>
+    </Compile>
     <Compile Include="src\Drink.cs" />
     <Compile Include="src\enums\DrinkType.cs" />
     <Compile Include="src\enums\PizzaSize.cs" />
@@ -72,6 +78,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HelperPage2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HelperPage3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HelperPage4.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

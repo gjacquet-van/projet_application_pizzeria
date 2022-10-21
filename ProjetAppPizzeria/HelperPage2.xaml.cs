@@ -43,7 +43,16 @@ namespace ProjetAppPizzeria
         private void ButtonFindClient(object sender, RoutedEventArgs e)
         {
             Client c = ((MainWindow)Application.Current.MainWindow).GetPizzeria().getClients().Find(x => x.getPhoneNumber() == number);
-            Console.WriteLine(c);
+            if (c != null)
+            {
+                HelperPage3 helperPage3 = new HelperPage3(c);
+                NavigationService.Navigate(helperPage3);
+            }
+            else
+            {
+                HelperPage4 helperPage4 = new HelperPage4(number);
+                NavigationService.Navigate(helperPage4);
+            }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
