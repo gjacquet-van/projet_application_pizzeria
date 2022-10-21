@@ -22,10 +22,12 @@ namespace ProjetAppPizzeria
     public partial class HelperPage4 : Page
     {
         private string number;
-        public HelperPage4(string number)
+        private Helper h;
+        internal HelperPage4(string number, Helper h)
         {
             InitializeComponent();
             this.number = number;
+            this.h = h;
         }
 
 /*        private void SetClientAddress(String phoneNumber)
@@ -35,16 +37,11 @@ namespace ProjetAppPizzeria
         }*/
         private Address AskClientAddress()
         {
-            Console.WriteLine("Veuillez entrer le numéro de rue : ");
-            String streetNumber = Console.ReadLine();
-            Console.WriteLine("Veuillez entrer le nom de rue : ");
-            String streetName = Console.ReadLine();
-            Console.WriteLine("Veuillez entrer le code postal : ");
-            String postalCode = Console.ReadLine();
-            Console.WriteLine("Veuillez entrer la ville : ");
-            String city = Console.ReadLine();
-            Console.WriteLine("Veuillez entrer le pays : ");
-            String country = Console.ReadLine();
+            String streetNumber = StreetNumber.Text;
+            String streetName = StreetName.Text;
+            String postalCode = PostalCode.Text;
+            String city = City.Text;
+            String country = Country.Text;
             return new Address(streetNumber, streetName, city, postalCode, country);
         }
         private String AskClientPhoneNumber()
@@ -53,21 +50,21 @@ namespace ProjetAppPizzeria
             String phoneNumber = Console.ReadLine();
             return phoneNumber;
         }
-        private void AddNewClient()
+        private void AddNewClient(object sender, RoutedEventArgs e)
         {
             Client client = AddClient();
             ((MainWindow)Application.Current.MainWindow).GetPizzeria().addClient(client);
+            HelperPage3 helperPage3 = new HelperPage3(client, h);
+            NavigationService.Navigate(helperPage3);
         }
         private String AskClientFirstName()
         {
-            Console.WriteLine("Veuillez entrer le prénom du client : ");
-            String firstName = Console.ReadLine();
+            String firstName = Firstname.Text;
             return firstName;
         }
         private String AskClientLastName()
         {
-            Console.WriteLine("Veuillez entrer le nom du client : ");
-            String lastName = Console.ReadLine();
+            String lastName = Lastname.Text;
             return lastName;
         }
         private Client AddClient()

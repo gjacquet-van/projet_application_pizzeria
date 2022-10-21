@@ -27,8 +27,6 @@ namespace ProjetAppPizzeria
         {
             InitializeComponent();
             this.h = h;
-            Helper test = GetHelperPage2();
-            Console.WriteLine(test);
         }
         private void ButtonDisconnect(object sender, RoutedEventArgs e)
         {
@@ -45,12 +43,12 @@ namespace ProjetAppPizzeria
             Client c = ((MainWindow)Application.Current.MainWindow).GetPizzeria().getClients().Find(x => x.getPhoneNumber() == number);
             if (c != null)
             {
-                HelperPage3 helperPage3 = new HelperPage3(c);
+                HelperPage3 helperPage3 = new HelperPage3(c, h);
                 NavigationService.Navigate(helperPage3);
             }
             else
             {
-                HelperPage4 helperPage4 = new HelperPage4(number);
+                HelperPage4 helperPage4 = new HelperPage4(number, h);
                 NavigationService.Navigate(helperPage4);
             }
         }
@@ -59,6 +57,11 @@ namespace ProjetAppPizzeria
         {
             number = NumberClient.Text;
             Console.WriteLine(number);
+        }
+
+        private void ButtonManageOrders(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

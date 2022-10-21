@@ -85,6 +85,17 @@ namespace ProjetAppPizzeria.src
 
         }
 
+        public Order(Client client, Helper helper)
+        {
+            this.orderDate = DateTime.Now;
+            this.client = client;
+            this.helper = helper;
+            this.isCooked = false;
+            this.isDelivered = false;
+            this.isCanceled = false;
+
+        }
+
         public void SetOrderDate(DateTime orderDate)
         {
             this.orderDate = orderDate;

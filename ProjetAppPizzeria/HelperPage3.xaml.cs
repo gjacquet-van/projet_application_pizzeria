@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ProjetAppPizzeria.src.enums;
+using System.Windows.Threading;
 
 namespace ProjetAppPizzeria
 {
@@ -22,10 +24,30 @@ namespace ProjetAppPizzeria
     public partial class HelperPage3 : Page
     {
         private Client c;
-        internal HelperPage3(Client c)
+        private Helper h;
+        private Order o;
+        internal HelperPage3(Client c, Helper h)
         {
             InitializeComponent();
             this.c = c;
+            Pizza_Type.ItemsSource = Enum.GetValues(typeof(PizzaType)).Cast<PizzaType>();
+            Pizza_Size.ItemsSource = Enum.GetValues(typeof(PizzaSize)).Cast<PizzaSize>();
+            Drink_Type.ItemsSource = Enum.GetValues(typeof(DrinkType)).Cast<DrinkType>();
+            this.o = new Order(c, h);
+            DispatcherTimer dispatcherTimer = new DispatcherTimer(DispatcherPriority.Normal);
+            dispatcherTimer.Tick += new EventHandler(timer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            dispatcherTimer.Start();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            
+        }
+        private void ButtonDisconnect(object sender, RoutedEventArgs e)
+        {
+            HelperPage1 helperPage1 = new HelperPage1();
+            NavigationService.Navigate(helperPage1);
         }
     }
 }

@@ -26,7 +26,7 @@
         <TextBox x:Name="City" HorizontalAlignment="Left" Margin="475,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="PostalCode" HorizontalAlignment="Left" Margin="475,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="Country" HorizontalAlignment="Left" Margin="475,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Add client" HorizontalAlignment="Center" Margin="0,271,0,0" VerticalAlignment="Top" Height="46" Width="114" FontSize="16"/>
+        <Button Click="AddNewClient" Content="Add client" HorizontalAlignment="Center" Margin="0,271,0,0" VerticalAlignment="Top" Height="46" Width="114" FontSize="16"/>
 
     </Grid>
 </Page>

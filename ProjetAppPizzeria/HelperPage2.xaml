@@ -10,8 +10,9 @@
 
     <Grid>
         <Button Content="Disconnect" Click="ButtonDisconnect" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="36" Width="109"/>
-        <Label Height="30" Margin="296,121,316,299" FontSize="16">Client's phone number :</Label>
         <TextBox x:Name="NumberClient" HorizontalAlignment="Left" Margin="310,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Height="37" TextChanged="TextBox_TextChanged" FontSize="20"/>
         <Button Click="ButtonFindClient" Content="Find client" HorizontalAlignment="Left" Margin="333,225,0,0" VerticalAlignment="Top" Height="42" Width="115" FontSize="16"/>
+        <Button Click="ButtonManageOrders" Content="Manage orders" HorizontalAlignment="Left" Margin="333,281,0,0" VerticalAlignment="Top" Height="42" Width="115" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="306,130,0,0" TextWrapping="Wrap" Text="Client's phone number :" VerticalAlignment="Top" FontSize="16"/>
     </Grid>
 </Page>
