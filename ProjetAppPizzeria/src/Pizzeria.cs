@@ -123,6 +123,10 @@ namespace ProjetAppPizzeria.src
         {
             return this.orders.FindAll(order => (order.GetIsCooked() == true) && (order.GetIsDelivered() == false) && (order.GetIsCanceled() == false));
         }
+        internal IEnumerable GetHelpersEnum()
+        {
+            return this.helpers;
+        }
 
         public override string ToString()
         {
