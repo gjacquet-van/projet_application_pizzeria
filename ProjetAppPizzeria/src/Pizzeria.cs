@@ -124,6 +124,22 @@ namespace ProjetAppPizzeria.src
             return this.orders.FindAll(order => (order.GetIsCooked() == true) && (order.GetIsDelivered() == false) && (order.GetIsCanceled() == false));
         }
 
+        private void AddHelper(Helper helper)
+        {
+            this.helpers.Add(helper);
+        }
+        private void RemoveHelper(Helper helper)
+        {
+            this.helpers.Remove(helper);
+        }
+        private void AddDeliveryMan(DeliveryMan deliveryMan)
+        {
+            this.deliveryMen.Add(deliveryMan);
+        }
+        private void RemoveDeliveryMan(DeliveryMan deliveryMan)
+        {
+            this.deliveryMen.Remove(deliveryMan);
+        }
         public override string ToString()
         {
             string result = "Clients: \n";
