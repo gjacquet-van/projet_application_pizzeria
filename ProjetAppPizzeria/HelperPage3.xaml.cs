@@ -87,6 +87,7 @@ namespace ProjetAppPizzeria
             int n = ((MainWindow)Application.Current.MainWindow).GetPizzeria().getOrders().Count;
             o.SetOrderNumber(n);
             ((MainWindow)Application.Current.MainWindow).GetPizzeria().addOrder(o);
+            ((MainWindow)Application.Current.MainWindow).refreshData();
             HelperPage2 helperPage2 = new HelperPage2(h);
             NavigationService.Navigate(helperPage2);
         }

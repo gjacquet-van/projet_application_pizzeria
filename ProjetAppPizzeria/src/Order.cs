@@ -107,7 +107,7 @@ namespace ProjetAppPizzeria.src
                     s = "In delivery";
                 } else if (this.isDelivered)
                 {
-                    s = "Delivred";
+                    s = "Delivered";
                 } else if (this.isCooked)
                 {
                     s = "Cooked";
@@ -136,6 +136,10 @@ namespace ProjetAppPizzeria.src
             {
                 return !isCanceled && !isClosed && isDelivered;
             }
+        }
+        public string priceString
+        {
+            get { return totalPrice + "€"; }
         }
 
 

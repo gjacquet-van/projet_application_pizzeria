@@ -10,7 +10,7 @@
         <TabControl>
             <TabItem Header="Helper">
                 <Grid Background="#FFE5E5E5">
-                    
+
                     <TabControl>
                         <TabItem Header="Take order">
                             <Grid Background="#FFE5E5E5">
@@ -24,6 +24,7 @@
                                         <DataGridTextColumn Header="Order" Width="50" Binding="{Binding Path=orderNumberString, Mode=OneWay}"/>
                                         <DataGridTextColumn Header="Pizzas" Width="250" Binding="{Binding Path=Details, Mode=OneWay}"/>
                                         <DataGridTextColumn Header="Drinks" Width="100" Binding="{Binding Path=DetailsDrink, Mode=OneWay}"/>
+                                        <DataGridTextColumn Header="Price" Width="50" Binding="{Binding Path=priceString, Mode=OneWay}"/>
                                         <DataGridTextColumn Header="State" Width="100" Binding="{Binding Path=State, Mode=OneWay}"/>
                                         <DataGridTemplateColumn>
                                             <DataGridTemplateColumn.CellTemplate>
@@ -46,6 +47,7 @@
                                                 </DataTemplate>
                                             </DataGridTemplateColumn.CellTemplate>
                                         </DataGridTemplateColumn>
+
                                     </DataGrid.Columns>
                                     <DataGrid.RowDetailsTemplate>
                                         <DataTemplate>
@@ -94,6 +96,7 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Order" Width="50" Binding="{Binding Path=orderNumberString, Mode=OneWay}"/>
                             <DataGridTextColumn Header="Address" Width="300" Binding="{Binding Path=orderAddressString, Mode=OneWay}"/>
+                            <DataGridTextColumn Header="Price" Width="50" Binding="{Binding Path=priceString, Mode=OneWay}"/>
                             <DataGridTextColumn Header="Time" Width="50" Binding="{Binding Path=orderTimerString, Mode=OneWay}"/>
                             <DataGridTemplateColumn>
                                 <DataGridTemplateColumn.CellTemplate>
@@ -123,14 +126,122 @@
                     <TabControl>
                         <TabItem Header="Helper">
                             <Grid Background="#FFE5E5E5">
-                                <DataGrid Name="DataGridHelper"/>
+                                <Grid Background="#FFE5E5E5">
+                                    <DataGrid Name="HelperList" AutoGenerateColumns="False" Margin="0,0,0,189">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Lastname" Width="100" Binding="{Binding Path=LastnameString, Mode=OneWay}"/>
+                                            <DataGridTextColumn Header="Firstname" Width="100" Binding="{Binding Path=FirstnameString, Mode=OneWay}"/>
+                                            <DataGridTextColumn Header="Orders" Width="100" Binding="{Binding numberOfOrdersString, Mode=OneWay}"/>
+                                            <DataGridTemplateColumn>
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <Button Click="DeleteHelper" Name="Cancel" Background="Red" Foreground="White" Width="50">❌</Button>
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+                                        </DataGrid.Columns>
+                                        <DataGrid.RowDetailsTemplate>
+                                            <DataTemplate>
+
+                                            </DataTemplate>
+                                        </DataGrid.RowDetailsTemplate>
+                                    </DataGrid>
+                                    <Button Content="Add helper" HorizontalAlignment="Left" Margin="498,260,0,0" VerticalAlignment="Top" Height="42" Width="108" Click="AddNewHelper" FontSize="16"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="10,250,0,0" TextWrapping="Wrap" Text="Firstname :" VerticalAlignment="Top" Height="22" Width="84" FontSize="16"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="10,199,0,0" TextWrapping="Wrap" Text="Lastname :" VerticalAlignment="Top" Height="22" Width="84" FontSize="16"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="161,199,0,0" TextWrapping="Wrap" Text="Street number :" VerticalAlignment="Top" Height="22" Width="128" FontSize="16"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="161,250,0,0" TextWrapping="Wrap" Text="Street name :" VerticalAlignment="Top" Height="22" Width="128" FontSize="16"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="161,302,0,0" TextWrapping="Wrap" Text="City :" VerticalAlignment="Top" Height="22" Width="128" FontSize="16"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="310,199,0,0" TextWrapping="Wrap" Text="Postal code :" VerticalAlignment="Top" Height="22" Width="128" FontSize="16"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="310,250,0,0" TextWrapping="Wrap" Text="Country :" VerticalAlignment="Top" Height="22" Width="128" FontSize="16"/>
+                                    <TextBox x:Name="HelperFirstname" HorizontalAlignment="Left" Margin="10,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                    <TextBox x:Name="HelperLastname" HorizontalAlignment="Left" Margin="10,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                    <TextBox x:Name="HelperStreetNumber" HorizontalAlignment="Left" Margin="161,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                    <TextBox x:Name="HelperStreetName" HorizontalAlignment="Left" Margin="161,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                    <TextBox x:Name="HelperCity" HorizontalAlignment="Left" Margin="161,324,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                    <TextBox x:Name="HelperPostalCode" HorizontalAlignment="Left" Margin="310,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                    <TextBox x:Name="HelperCountry" HorizontalAlignment="Left" Margin="310,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="10,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="120" FontSize="16"><Run Language="fr-fr" Text="Phone number"/><Run Text=" :"/></TextBlock>
+                                    <TextBox x:Name="HelperPhoneNumber" HorizontalAlignment="Left" Margin="10,324,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                </Grid>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Delivery man">
-                            <Grid Background="#FFE5E5E5"/>
+                            <Grid Background="#FFE5E5E5" Height="380">
+                                <DataGrid Name="DeliveryManList" AutoGenerateColumns="False" Margin="0,0,0,190">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Lastname" Width="100" Binding="{Binding Path=LastnameString, Mode=OneWay}"/>
+                                        <DataGridTextColumn Header="Firstname" Width="100" Binding="{Binding Path=FirstnameString, Mode=OneWay}"/>
+                                        <DataGridTextColumn Header="Orders" Width="100" Binding="{Binding numberOfDeliveryString, Mode=OneWay}"/>
+                                        <DataGridTemplateColumn>
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Button Click="DeleteDeliveryMan" Name="Cancel" Background="Red" Foreground="White" Width="50">❌</Button>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+                                    <DataGrid.RowDetailsTemplate>
+                                        <DataTemplate>
+
+                                        </DataTemplate>
+                                    </DataGrid.RowDetailsTemplate>
+                                </DataGrid>
+                                <Button Content="Add delivery man" HorizontalAlignment="Left" Margin="498,260,0,0" VerticalAlignment="Top" Height="42" Width="150" Click="AddNewDeliveryMan" FontSize="16"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="10,250,0,0" TextWrapping="Wrap" Text="Firstname :" VerticalAlignment="Top" Height="22" Width="84" FontSize="16"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="10,199,0,0" TextWrapping="Wrap" Text="Lastname :" VerticalAlignment="Top" Height="22" Width="84" FontSize="16"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="161,199,0,0" TextWrapping="Wrap" Text="Street number :" VerticalAlignment="Top" Height="22" Width="128" FontSize="16"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="161,250,0,0" TextWrapping="Wrap" Text="Street name :" VerticalAlignment="Top" Height="22" Width="128" FontSize="16"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="161,302,0,0" TextWrapping="Wrap" Text="City :" VerticalAlignment="Top" Height="22" Width="128" FontSize="16"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="310,199,0,0" TextWrapping="Wrap" Text="Postal code :" VerticalAlignment="Top" Height="22" Width="128" FontSize="16"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="310,250,0,0" TextWrapping="Wrap" Text="Country :" VerticalAlignment="Top" Height="22" Width="128" FontSize="16"/>
+                                <TextBox x:Name="DeliveryManFirstname" HorizontalAlignment="Left" Margin="10,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                <TextBox x:Name="DeliveryManLastname" HorizontalAlignment="Left" Margin="10,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                <TextBox x:Name="DeliveryManStreetNumber" HorizontalAlignment="Left" Margin="161,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                <TextBox x:Name="DeliveryManStreetName" HorizontalAlignment="Left" Margin="161,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                <TextBox x:Name="DeliveryManCity" HorizontalAlignment="Left" Margin="161,324,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                <TextBox x:Name="DeliveryManPostalCode" HorizontalAlignment="Left" Margin="310,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                <TextBox x:Name="DeliveryManCountry" HorizontalAlignment="Left" Margin="310,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="10,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="120" FontSize="16"><Run Language="fr-fr" Text="Phone number"/><Run Text=" :"/></TextBlock>
+                                <TextBox x:Name="DeliveryManPhoneNumber" HorizontalAlignment="Left" Margin="10,324,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                            </Grid>
                         </TabItem>
                         <TabItem Header="Client">
-                            <Grid Background="#FFE5E5E5"/>
+                            <Grid Background="#FFE5E5E5">
+                                <DataGrid Name="ClientList" AutoGenerateColumns="False">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Lastname" Width="100" Binding="{Binding Path=LastnameString, Mode=OneWay}"/>
+                                        <DataGridTextColumn Header="Firstname" Width="100" Binding="{Binding Path=FirstnameString, Mode=OneWay}"/>
+                                        <DataGridTextColumn Header="City" Width="100" Binding="{Binding Path=CityString, Mode=OneWay}"/>
+                                        <DataGridTextColumn Header="Orders" Width="100" Binding="{Binding numberOfOrdersString, Mode=OneWay}"/>
+                                        <DataGridTextColumn Header="Spending" Width="100" Binding="{Binding totalSpendingString, Mode=OneWay}"/>
+                                    </DataGrid.Columns>
+                                    <DataGrid.RowDetailsTemplate>
+                                        <DataTemplate>
+
+                                        </DataTemplate>
+                                    </DataGrid.RowDetailsTemplate>
+                                </DataGrid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Orders">
+                            <Grid Background="#FFE5E5E5">
+                                <DataGrid Name="OrdersList" AutoGenerateColumns="False">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Order" Width="50" Binding="{Binding Path=orderNumberString, Mode=OneWay}"/>
+                                        <DataGridTextColumn Header="Pizzas" Width="200" Binding="{Binding Path=Details, Mode=OneWay}"/>
+                                        <DataGridTextColumn Header="Drinks" Width="200" Binding="{Binding Path=DetailsDrink, Mode=OneWay}"/>
+                                        <DataGridTextColumn Header="City" Width="100" Binding="{Binding Path=orderAddressString, Mode=OneWay}"/>
+                                        <DataGridTextColumn Header="Price" Width="50" Binding="{Binding Path=priceString, Mode=OneWay}"/>
+                                        <DataGridTextColumn Header="state" Width="100" Binding="{Binding Path=State, Mode=OneWay}"/>
+                                    </DataGrid.Columns>
+                                    <DataGrid.RowDetailsTemplate>
+                                        <DataTemplate>
+
+                                        </DataTemplate>
+                                    </DataGrid.RowDetailsTemplate>
+                                </DataGrid>
+                            </Grid>
                         </TabItem>
                     </TabControl>
                 </Grid>

@@ -131,6 +131,30 @@ namespace ProjetAppPizzeria.src
         {
             return this.orders.FindAll(order => order.GetIsCanceled() == false && order.GetIsClosed() == false);
         }
+        internal IEnumerable getAllClients()
+        {
+            return this.clients.FindAll(client => client != null);
+        }
+        internal IEnumerable getAllDeliveryMen()
+        {
+            return this.deliveryMen.FindAll(deliveryMan => deliveryMan != null);
+        }
+        internal IEnumerable getAllHelpers()
+        {
+            return this.helpers.FindAll(helper => helper != null);
+        }
+        internal IEnumerable GetAllOrdersStat()
+        {
+            return this.orders.FindAll(order => order != null);
+        }
+        public void DeleteHelper(int index)
+        {
+            this.helpers.RemoveAt(index);
+        }
+        public void DeleteDeliveryMan(int index)
+        {
+            this.deliveryMen.RemoveAt(index);
+        }
 
         public override string ToString()
         {

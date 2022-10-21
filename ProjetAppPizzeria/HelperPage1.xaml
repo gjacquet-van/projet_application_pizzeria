@@ -9,8 +9,9 @@
       Title="HelperPage1">
 
     <Grid>
-        <ComboBox Name="SelectHelper" HorizontalAlignment="Left" Margin="324,166,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding}" FontSize="16"/>
-        <Button Tag="{Binding}" Click="Connect" Content="Connect" HorizontalAlignment="Left" Margin="333,225,0,0" VerticalAlignment="Top" Height="38" Width="102" FontSize="16"/>
+        <ComboBox Name="SelectHelper" HorizontalAlignment="Left" Margin="324,165,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding}" FontSize="16"/>
+        <Button Tag="{Binding}" Click="Connect" Content="Connect" HorizontalAlignment="Left" Margin="333,224,0,0" VerticalAlignment="Top" Height="38" Width="102" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="319,130,0,0" TextWrapping="Wrap" Text="Select your name :" VerticalAlignment="Top" FontSize="16"/>
 
 
     </Grid>
