@@ -231,7 +231,7 @@
                                         <DataGridTextColumn Header="Order" Width="50" Binding="{Binding Path=orderNumberString, Mode=OneWay}"/>
                                         <DataGridTextColumn Header="Pizzas" Width="200" Binding="{Binding Path=Details, Mode=OneWay}"/>
                                         <DataGridTextColumn Header="Drinks" Width="200" Binding="{Binding Path=DetailsDrink, Mode=OneWay}"/>
-                                        <DataGridTextColumn Header="City" Width="100" Binding="{Binding Path=orderAddressString, Mode=OneWay}"/>
+                                        <DataGridTextColumn Header="City" Width="100" Binding="{Binding Path=orderCity, Mode=OneWay}"/>
                                         <DataGridTextColumn Header="Price" Width="50" Binding="{Binding Path=priceString, Mode=OneWay}"/>
                                         <DataGridTextColumn Header="state" Width="100" Binding="{Binding Path=State, Mode=OneWay}"/>
                                     </DataGrid.Columns>

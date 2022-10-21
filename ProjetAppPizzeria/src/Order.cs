@@ -85,6 +85,13 @@ namespace ProjetAppPizzeria.src
                 }
             }
         }
+        public string orderCity
+        {
+            get
+            {
+                return client.getAddress().getCity();
+            }
+        }
         public string State
         {
             get
