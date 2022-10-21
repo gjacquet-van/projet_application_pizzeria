@@ -23,7 +23,24 @@ namespace ProjetAppPizzeria.src
         
         public override string ToString()
         {
-            return base.ToString() + " Salary: " + this.salary;
+            return base.ToString();
+        }
+
+        public void addPreparingQueue(Order order)
+        {
+            Task.Run(() => this.PrepareOrder(order));
+        }
+
+        public async void PrepareOrder(Order order)
+        {
+            while (order.GetIsReady() == false && order.GetIsCanceled() == false)
+            {
+                await Task.Delay(1000);
+                Console.WriteLine("Preparing order : " + order.ToString());
+                order.SetOrderTimer(order.GetOrderTimer() + 1);
+            }
+            Console.WriteLine("order " + order.orderNumberString + " ready!");
+
         }
     }
 }

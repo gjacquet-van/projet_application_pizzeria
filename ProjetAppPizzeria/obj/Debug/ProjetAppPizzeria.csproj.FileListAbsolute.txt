@@ -38,3 +38,11 @@ C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeri
 C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\HelperPage4.g.cs
 C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\HelperPage3.baml
 C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\HelperPage4.baml
+C:\Users\Guillaume Jacquet\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\HelperPage1.g.cs
+C:\Users\Guillaume Jacquet\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\HelperPage2.g.cs
+C:\Users\Guillaume Jacquet\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\HelperPage3.g.cs
+C:\Users\Guillaume Jacquet\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\HelperPage4.g.cs
+C:\Users\Guillaume Jacquet\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\HelperPage1.baml
+C:\Users\Guillaume Jacquet\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\HelperPage2.baml
+C:\Users\Guillaume Jacquet\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\HelperPage3.baml
+C:\Users\Guillaume Jacquet\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\HelperPage4.baml

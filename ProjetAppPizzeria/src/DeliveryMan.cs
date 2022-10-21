@@ -18,6 +18,22 @@ namespace ProjetAppPizzeria.src
         {
             return this.salary;
         }
+        public void addDeliveryQueue(Order order)
+        {
+            Task.Run(() => this.DeliverPizza(order));
+        }
+
+        public async void DeliverPizza(Order order)
+        {
+            while (order.GetIsDelivered() == false && order.GetIsCanceled() == false)
+            {
+                await Task.Delay(1000);
+                Console.WriteLine("Delivering order : " + order.ToString());
+                order.SetOrderTimer(order.GetOrderTimer() + 1);
+            }
+            Console.WriteLine("order " + order.ToString() + " Delivered!");
+
+        }
 
     }
 }

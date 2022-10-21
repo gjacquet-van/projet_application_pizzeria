@@ -10,6 +10,7 @@ namespace ProjetAppPizzeria.src.enums
     {
         SMALL,
         MEDIUM,
-        LARGE
+        LARGE,
+        NULL
     }
 }

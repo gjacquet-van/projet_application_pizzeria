@@ -12,6 +12,7 @@ namespace ProjetAppPizzeria.src.enums
         SPRITE,
         FANTA,
         FRUIT_JUICE,
-        WATER
+        WATER,
+        NULL
     }
 }

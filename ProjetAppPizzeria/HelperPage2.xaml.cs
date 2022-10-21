@@ -56,7 +56,6 @@ namespace ProjetAppPizzeria
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             number = NumberClient.Text;
-            Console.WriteLine(number);
         }
 
         private void ButtonManageOrders(object sender, RoutedEventArgs e)

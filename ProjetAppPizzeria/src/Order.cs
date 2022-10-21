@@ -1,5 +1,6 @@
 ﻿using ProjetAppPizzeria.src.enums;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,13 +16,17 @@ namespace ProjetAppPizzeria.src
         private Client client;
         private Helper helper;
         private DeliveryMan deliveryMan;
-        private List<Pizza> pizzas;
-        private List<Drink> drinks;
+        private List<Pizza> pizzas = new List<Pizza>();
+        private List<Drink> drinks = new List<Drink>();
         private float totalPrice;
         private bool isCooked;
         private bool isDelivered;
         private int orderTimer;
         private bool isCanceled;
+        private bool isClosed;
+        private bool isReady;
+        private bool isPaid;
+
         public string Details {
             get
             {
@@ -29,6 +34,18 @@ namespace ProjetAppPizzeria.src
                 foreach (Pizza p in pizzas)
                 {
                     s += p.ToString()+"\n";
+                }
+                return s;
+            }
+        }
+        public string DetailsDrink
+        {
+            get
+            {
+                string s = "";
+                foreach (Drink d in drinks)
+                {
+                    s += d.ToString() + "\n";
                 }
                 return s;
             }
@@ -68,6 +85,61 @@ namespace ProjetAppPizzeria.src
                 }
             }
         }
+        public string State
+        {
+            get
+            {
+                string s = "";
+                if (this.isCanceled)
+                {
+                    s = "Canceled";
+                }
+                else if (this.isClosed)
+                {
+                    s = "Closed";
+                }
+                else if (this.isPaid)
+                {
+                    s = "Paid";
+                }
+                else if (this.isReady && !this.isDelivered)
+                {
+                    s = "In delivery";
+                } else if (this.isDelivered)
+                {
+                    s = "Delivred";
+                } else if (this.isCooked)
+                {
+                    s = "Cooked";
+                } else if (!this.isCooked)
+                {
+                    s = "Cooking";
+                } else
+                {
+                    s = "Error";
+                }
+                    return s;
+            }
+        }
+
+        public bool isEnabledGreen
+        {
+            get
+            {
+                return !isCanceled && !isClosed && !isDelivered && isCooked && !isReady;
+            }
+        }
+
+        public bool isEnabledBlue
+        {
+            get
+            {
+                return !isCanceled && !isClosed && isDelivered;
+            }
+        }
+
+
+
 
         public Order(Client client, Helper helper, DeliveryMan deliveryMan, List<Pizza> pizzas, List<Drink> drinks, int orderNumber)
         {
@@ -82,20 +154,28 @@ namespace ProjetAppPizzeria.src
             this.isCooked = false;
             this.isDelivered = false;
             this.isCanceled = false;
+            this.isClosed = false;
+            this.isReady = false;
+            this.isPaid = false;
 
         }
 
-        public Order(Client client, Helper helper)
+        public Order(Client client, Helper helper, DeliveryMan deliveryMan)
         {
             this.orderDate = DateTime.Now;
             this.client = client;
             this.helper = helper;
+            this.deliveryMan = deliveryMan;
             this.isCooked = false;
             this.isDelivered = false;
             this.isCanceled = false;
+            this.isClosed = false;
+            this.isReady = false;
+            this.isPaid = false;
+
 
         }
-
+        
         public void SetOrderDate(DateTime orderDate)
         {
             this.orderDate = orderDate;
@@ -140,6 +220,15 @@ namespace ProjetAppPizzeria.src
         {
             this.pizzas = pizzas;
         }
+
+        public void AddPizza(Pizza pizza)
+        {
+            this.pizzas.Add(pizza);
+        }
+        public void AddDrink(Drink drink)
+        {
+            this.drinks.Add(drink);
+        }
         public List<Pizza> GetPizzas()
         {
             return this.pizzas;
@@ -166,6 +255,7 @@ namespace ProjetAppPizzeria.src
             if (isCooked)
             {
                 this.orderTimer = 0;
+                this.helper.addPreparingQueue(this);
             }
         }
         public bool GetIsCooked()
@@ -188,6 +278,35 @@ namespace ProjetAppPizzeria.src
         {
             return this.isCanceled;
         }
+        public void SetIsClosed(bool isClosed)
+        {
+            this.isClosed = isClosed;
+        }
+        public bool GetIsClosed()
+        {
+            return this.isClosed;
+        }
+        public void SetIsReady(bool isReady)
+        {
+            this.isReady = isReady;
+            if (isReady)
+            {
+                this.orderTimer = 0;
+                this.deliveryMan.addDeliveryQueue(this);
+            }
+        }
+        public bool GetIsReady()
+        {
+            return this.isReady;
+        }
+        public void SetIsPaid(bool isPaid)
+        {
+            this.isPaid = isPaid;
+        }
+        public bool GetIsPaid()
+        {
+            return this.isPaid;
+        }
         public void SetOrderTimer(int t)
         {
             this.orderTimer = t;
@@ -196,9 +315,15 @@ namespace ProjetAppPizzeria.src
         {
             return orderTimer;
         }
-
-
-        public float CalculTotalPrice()
+        public void DeletePizza(int index)
+        {
+            pizzas.RemoveAt(index);
+        }
+        public IEnumerable GetOrderElements()
+        {
+            return this.pizzas.FindAll(p => p != null);
+        }
+            public float CalculTotalPrice() 
         {
             float result = 0;
             foreach (Pizza pizza in pizzas)

@@ -12,6 +12,19 @@ namespace ProjetAppPizzeria.src
         private DrinkType type;
         private float price;
 
+        public Drink(DrinkType type)
+        {
+            this.type = type;
+            if (type == DrinkType.NULL)
+            {
+                this.price = 0;
+            }
+            else
+            { 
+                this.price = 1;
+            }
+            
+        }
         public Drink(DrinkType type, float price)
         {
             this.type = type;
@@ -20,7 +33,12 @@ namespace ProjetAppPizzeria.src
 
         internal float GetPrice()
         {
-            return 0;
+            return price;
+        }
+        //ToString
+        public override string ToString()
+        {
+            return type.ToString();
         }
     }
 }

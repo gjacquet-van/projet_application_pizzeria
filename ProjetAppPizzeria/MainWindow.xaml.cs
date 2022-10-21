@@ -78,6 +78,16 @@ namespace ProjetAppPizzeria
             Order o = (Order)OrderListToCook.SelectedItem;
             pizzeria.getOrders()[o.GetOrderNumber()].SetIsCanceled(true);
         }
+        private void finishPreparingOrder(object sender, RoutedEventArgs e)
+        {
+            Order o = (Order)OrderList.SelectedItem;
+            pizzeria.getOrders()[o.GetOrderNumber()].SetIsReady(true);
+        }
+        private void CancelOrder(object sender, RoutedEventArgs e)
+        {
+            Order o = (Order)OrderList.SelectedItem;
+            pizzeria.getOrders()[o.GetOrderNumber()].SetIsCanceled(true);
+        }
         private void finishDeliveringOrder(object sender, RoutedEventArgs e)
         {
             Order o = (Order)OrderListToDeliver.SelectedItem;
@@ -92,6 +102,7 @@ namespace ProjetAppPizzeria
         {
             OrderListToCook.ItemsSource = pizzeria.GetOrdersToCook();
             OrderListToDeliver.ItemsSource = pizzeria.GetOrdersToDeliver();
+            OrderList.ItemsSource = pizzeria.GetAllOrders();
             
         }
         
@@ -100,5 +111,10 @@ namespace ProjetAppPizzeria
             return pizzeria;
         }
 
+        private void CloseOrder(object sender, RoutedEventArgs e)
+        {
+            Order o = (Order)OrderList.SelectedItem;
+            pizzeria.getOrders()[o.GetOrderNumber()].SetIsClosed(true);
+        }
     }
 }

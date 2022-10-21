@@ -13,6 +13,7 @@ namespace ProjetAppPizzeria.src.enums
         HAWAIIAN,
         PEPPERONI,
         MEXICAN,
-        VEGETARIAN
+        VEGETARIAN,
+        NULL
     }
 }

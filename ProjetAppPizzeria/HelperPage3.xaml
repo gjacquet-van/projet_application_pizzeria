@@ -9,17 +9,34 @@
       Title="HelperPage3">
 
     <Grid>
+
+
         <Button Content="Disconnect" Click="ButtonDisconnect" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="36" Width="109"/>
 
-        <ComboBox x:Name="Pizza_Type" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="63,73,0,0" VerticalAlignment="Top" Width="120" FontSize="16" />
-        <ComboBox x:Name="Pizza_Size" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="63,121,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <ComboBox x:Name="Drink_Type" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="63,171,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <Button Content="Add to order" HorizontalAlignment="Left" Margin="69,216,0,0" VerticalAlignment="Top" FontSize="16" Height="34" Width="108"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="259,0,0,252"/>
-        <Button Content="Confirm order" HorizontalAlignment="Center" Margin="0,256,0,0" VerticalAlignment="Top" FontSize="16" Height="50" Width="168"/>
+
+        <Grid Margin="232,0,0,214">
+        <DataGrid Name="ListOfOrderElements" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                    <DataGridTextColumn Header="Type" Width="100" Binding="{Binding Path=typeString, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <DataGridTextColumn Header="Size" Width="100" Binding="{Binding Path=sizeString, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <DataGridTextColumn Header="Price" Width="100" Binding="{Binding Path=priceString, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="DeletePizza" Name="Cancel" Background="Red" Foreground="White" Width="50">❌</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+        </DataGrid>
+        </Grid>
+        <Button Click="ConfirmOrder" Content="Confirm order" HorizontalAlignment="Center" Margin="0,236,0,0" VerticalAlignment="Top" FontSize="16" Height="50" Width="168"/>
         <TextBlock HorizontalAlignment="Left" Margin="63,47,0,0" TextWrapping="Wrap" Text="Type of the pizza :" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="63,97,0,0" TextWrapping="Wrap" Text="Size of the pizza :" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="63,149,0,0" TextWrapping="Wrap" Text="Drink :" VerticalAlignment="Top" FontSize="16"/>
-
+        <ComboBox x:Name="Pizza_Type" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="63,73,0,0" VerticalAlignment="Top" Width="120" FontSize="16" />
+        <ComboBox x:Name="Pizza_Size" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="63,121,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <ComboBox x:Name="Drink_Type" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="63,171,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <Button Click="AddElementInOrder" Content="Add to order" HorizontalAlignment="Left" Margin="73,219,0,0" VerticalAlignment="Top" FontSize="16" Height="34" Width="108"/>
     </Grid>
 </Page>

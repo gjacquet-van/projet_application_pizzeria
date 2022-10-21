@@ -121,11 +121,15 @@ namespace ProjetAppPizzeria.src
         }
         internal IEnumerable GetOrdersToDeliver()
         {
-            return this.orders.FindAll(order => (order.GetIsCooked() == true) && (order.GetIsDelivered() == false) && (order.GetIsCanceled() == false));
+            return this.orders.FindAll(order => (order.GetIsCooked() == true) && (order.GetIsDelivered() == false) && (order.GetIsCanceled() == false) && (order.GetIsReady() == true));
         }
         internal IEnumerable GetHelpersEnum()
         {
             return this.helpers;
+        }
+        internal IEnumerable GetAllOrders()
+        {
+            return this.orders.FindAll(order => order.GetIsCanceled() == false && order.GetIsClosed() == false);
         }
 
         public override string ToString()
