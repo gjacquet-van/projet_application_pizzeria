@@ -124,19 +124,19 @@ namespace ProjetAppPizzeria.src
             return this.orders.FindAll(order => (order.GetIsCooked() == true) && (order.GetIsDelivered() == false) && (order.GetIsCanceled() == false));
         }
 
-        private void AddHelper(Helper helper)
+        public void AddHelper(Helper helper)
         {
             this.helpers.Add(helper);
         }
-        private void RemoveHelper(Helper helper)
+        public void RemoveHelper(Helper helper)
         {
             this.helpers.Remove(helper);
         }
-        private void AddDeliveryMan(DeliveryMan deliveryMan)
+        public void AddDeliveryMan(DeliveryMan deliveryMan)
         {
             this.deliveryMen.Add(deliveryMan);
         }
-        private void RemoveDeliveryMan(DeliveryMan deliveryMan)
+        public void RemoveDeliveryMan(DeliveryMan deliveryMan)
         {
             this.deliveryMen.Remove(deliveryMan);
         }
@@ -170,6 +170,21 @@ namespace ProjetAppPizzeria.src
             return result;
         }
 
-        
+        public bool IsTheSearchedClient(Client client, String phoneNumber)
+            {
+                return client.getPhoneNumber() == phoneNumber;
+            }
+        public Client FindClientWithPhoneNumber(String phoneNumber)
+        {
+            foreach (Client client in clients)
+            {
+                if (IsTheSearchedClient(client, phoneNumber))
+                {
+                    return client;
+                }
+            }
+            return null;
+        }
+
     }
 }

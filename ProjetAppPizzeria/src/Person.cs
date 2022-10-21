@@ -43,6 +43,10 @@ namespace ProjetAppPizzeria
         {
             return this.address;
         }
+        public void setAddress(Address address)
+        {
+            this.address = address;
+        }
         public override string ToString()
         {
             return " First name: " + this.firstName + " Last name: " + this.lastName + " Phone number: " + this.phoneNumber + " Address: " + this.address;

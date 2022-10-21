@@ -131,6 +131,84 @@ namespace ProjetAppPizzeria
             }
             return totalPrice / orders.Count;
         }
-
+        private bool IsFirstOrder(String phoneNumber)
+        {
+            if (pizzeria.FindClientWithPhoneNumber(phoneNumber) == null)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+        /*
+         * Le Commis demande au client si c'est sa première commande. 
+         * Si oui, le commis demande le numéro de téléphone et appelle AskClientPhoneNumber.
+         * Il obtient l'adresse et demande confirmation au client. S'il faut changer l'adresse, le commis appelle SetClientAddress.
+         * 
+         * Si c'est la première commannde, le commis appelle la fonction AddNewClient.
+         */
+        private Address AskClientPhoneNumber(String phoneNumber)  
+        {
+            if (IsFirstOrder(phoneNumber)){
+                Console.WriteLine("Le numéro de téléphone n'existe pas dans la base de donnée.");
+                return null;
+            }
+            else
+            {
+                return pizzeria.FindClientWithPhoneNumber(phoneNumber).getAddress();
+            }
+        }
+        
+        
+    private void SetClientAddress(String phoneNumber)
+    {
+        Address address = AskClientAddress();
+        pizzeria.FindClientWithPhoneNumber(phoneNumber).setAddress(address);
+    }
+    private Address AskClientAddress() {             
+                Console.WriteLine("Veuillez entrer le numéro de rue : ");
+                String streetNumber = Console.ReadLine();
+                Console.WriteLine("Veuillez entrer le nom de rue : ");
+                String streetName = Console.ReadLine();
+                Console.WriteLine("Veuillez entrer le code postal : ");
+                String postalCode = Console.ReadLine();
+                Console.WriteLine("Veuillez entrer la ville : ");
+                String city = Console.ReadLine();
+                Console.WriteLine("Veuillez entrer le pays : ");
+                String country = Console.ReadLine();
+        return new Address(streetNumber, streetName, city, postalCode, country);
+    }
+        private String AskClientPhoneNumber()
+        {
+            Console.WriteLine("Veuillez entrer le numéro de téléphone du client : ");
+            String phoneNumber = Console.ReadLine();
+            return phoneNumber;
+        }
+        private void AddNewClient()
+        {
+            Client client = AddClient();
+            pizzeria.addClient(client);
+        }
+        private String AskClientFirstName()
+        {
+            Console.WriteLine("Veuillez entrer le prénom du client : ");
+            String firstName = Console.ReadLine();
+            return firstName;
+        }
+        private String AskClientLastName()
+        {
+            Console.WriteLine("Veuillez entrer le nom du client : ");
+            String lastName = Console.ReadLine();
+            return lastName;
+        }
+        private Client AddClient()
+        {
+            Address address = AskClientAddress();
+            String firstName = AskClientFirstName();
+            String lastName = AskClientLastName();
+            String phoneNumber = AskClientPhoneNumber();
+            DateTime firstOderDate = DateTime.Now;
+            return new Client(firstName, lastName, phoneNumber, address.getStreetNumber(), address.getStreetName(), address.getCity(), address.getPostalCode(), address.getCountry(), firstOderDate) ;
+        }
     }
 }
