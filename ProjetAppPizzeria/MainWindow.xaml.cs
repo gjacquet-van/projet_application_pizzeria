@@ -92,6 +92,12 @@ namespace ProjetAppPizzeria
         {
             OrderListToCook.ItemsSource = pizzeria.GetOrdersToCook();
             OrderListToDeliver.ItemsSource = pizzeria.GetOrdersToDeliver();
+            
+        }
+        
+        internal Pizzeria GetPizzeria()
+        {
+            return pizzeria;
         }
     
     }

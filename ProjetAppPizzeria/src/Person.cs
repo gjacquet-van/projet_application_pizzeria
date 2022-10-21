@@ -12,7 +12,13 @@ namespace ProjetAppPizzeria
         private string lastName;
         private string phoneNumber;
         private Address address;
-
+        public string NameString
+        {
+            get
+            {
+                return firstName+" "+lastName;
+            }
+        }
         public Person(string firstName, string lastName, string phoneNumber)
         {
             this.firstName = firstName;

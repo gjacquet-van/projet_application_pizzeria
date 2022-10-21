@@ -55,12 +55,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="HelperPage1.xaml.cs">
+      <DependentUpon>HelperPage1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HelperPage2.xaml.cs">
+      <DependentUpon>HelperPage2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="src\Drink.cs" />
     <Compile Include="src\enums\DrinkType.cs" />
     <Compile Include="src\enums\PizzaSize.cs" />
     <Compile Include="src\enums\PizzaType.cs" />
     <Compile Include="src\Pizza.cs" />
     <Compile Include="src\Pizzeria.cs" />
+    <Page Include="HelperPage1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HelperPage2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

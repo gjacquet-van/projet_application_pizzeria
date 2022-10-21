@@ -14,3 +14,23 @@ C:\Users\Guillaume Jacquet\Documents\github\projet_application_pizzeria\ProjetAp
 C:\Users\Guillaume Jacquet\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\ProjetAppPizzeria.csproj.CoreCompileInputs.cache
 C:\Users\Guillaume Jacquet\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\ProjetAppPizzeria.exe
 C:\Users\Guillaume Jacquet\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\ProjetAppPizzeria.pdb
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\bin\Debug\ProjetAppPizzeria.exe.config
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\bin\Debug\ProjetAppPizzeria.exe
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\bin\Debug\ProjetAppPizzeria.pdb
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\ProjetAppPizzeria.csproj.AssemblyReference.cache
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\ProjetAppPizzeria.csproj.SuggestedBindingRedirects.cache
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\HelperPage1.g.cs
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\MainWindow.g.cs
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\App.g.cs
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\ProjetAppPizzeria_MarkupCompile.cache
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\ProjetAppPizzeria_MarkupCompile.lref
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\HelperPage1.baml
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\MainWindow.baml
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\ProjetAppPizzeria.g.resources
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\ProjetAppPizzeria.Properties.Resources.resources
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\ProjetAppPizzeria.csproj.GenerateResource.cache
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\ProjetAppPizzeria.csproj.CoreCompileInputs.cache
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\ProjetAppPizzeria.exe
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\ProjetAppPizzeria.pdb
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\HelperPage2.g.cs
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\HelperPage2.baml

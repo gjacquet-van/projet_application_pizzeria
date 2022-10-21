@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Guillaume Jacquet\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\obj\Debug\
 ProjetAppPizzeria
 none
 false
 DEBUG;TRACE
-C:\Users\Guillaume Jacquet\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\App.xaml
-1219584333
+C:\Users\Guillaume\Documents\github\projet_application_pizzeria\ProjetAppPizzeria\App.xaml
+31318231466
 
-19-1557443112
+21-549146905
 13-1310406943
-MainWindow.xaml;
+HelperPage1.xaml;HelperPage2.xaml;MainWindow.xaml;
 
-False
+True
 

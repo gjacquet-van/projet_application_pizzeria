@@ -10,10 +10,7 @@
         <TabControl>
             <TabItem Header="Helper">
                 <Grid Background="#FFE5E5E5">
-                    <Button Content="send new order to cook" HorizontalAlignment="Left" Margin="116,100,0,0" VerticalAlignment="Top" Height="35" Width="163" Click="sendNewOrderToCook"/>
-                    <Button Content="send cooked order to delivery man" HorizontalAlignment="Left" Margin="98,148,0,0" VerticalAlignment="Top" Height="35" Width="198" Click="sendNewOrderToCook"/>
-
-
+                    <Frame Source="HelperPage1.xaml"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Cook">
